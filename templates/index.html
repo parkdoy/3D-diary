@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>나만의 기록 은하계</title>
+
+    <!-- 외부 CSS 파일 링크 -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    
+</head>
+<body>
+    <div class="main-container">
+        <!-- 3D 캔버스 컨테이너 -->
+        <div id="visualization-container"></div>
+        
+        <!-- 이 블록을 추가합니다 -->
+        <script type="importmap">
+        {
+            "imports": {
+                "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+                "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+            }
+        }
+        </script>
+        
+        <!-- 사이드바를 열고 닫는 토글 버튼 -->
+        <button class="toggle-button" id="toggle-button"> &gt; </button>
+
+        <!-- 일기 입력을 위한 사이드바 -->
+        <div id="input-sidebar">
+            <div class="input-container">
+                <h1>나만의 기록 은하계</h1>
+                <!-- 이메일을 표시할 새로운 요소 -->
+                <div id="user-email-display" class="mb-4 text-center text-white text-lg font-bold"></div>
+                <textarea id="diary-entry" placeholder="오늘의 기록을 남겨보세요."></textarea>
+                <button id="record-button">기록하기</button>
+
+                <!-- 분석 결과 표시 영역 -->
+                <div class="result-container">
+                    <p>분석된 감정: <span id="result-emotion"></span></p>
+                    <p>분석된 카테고리: <span id="result-category"></span></p>
+                </div>
+                
+                <!-- 오브젝트 클릭 시 상세 정보 표시 영역 -->
+                <div class="result-container">
+                    <h2>상세 정보</h2>
+                    <p>감정: <span id="detail-emotion"></span></p>
+                    <p>카테고리: <span id="detail-category"></span></p>
+                    <p>기록: <span id="detail-text"></span></p>
+                    <p>시간: <span id="detail-timestamp"></span></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- 분리된 JavaScript 파일들을 올바른 순서로 불러옵니다. -->
+    <script type="module" src="{{ url_for('static', filename='js/core/three-scene.js') }}"></script>
+    <script type="module" src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>

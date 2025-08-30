@@ -1,0 +1,157 @@
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    background-color: #121212;
+    color: #E0E0E0;
+    margin: 0;
+    overflow: hidden; /* 스크롤바 숨기기 */
+}
+
+.main-container {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+}
+
+/* 3D 캔버스 중앙 정렬 */
+#visualization-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+}
+
+/* 사이드바 스타일 */
+#input-sidebar {
+    position: absolute;
+    top: 0;
+    left: 0; 
+    width: 35%;
+    height: 100vh;
+    background-color: #1a1a1a;
+    /* 초기에는 화면 왼쪽으로 이동 */
+    transform: translateX(-100%); 
+    transition: transform 0.5s ease-in-out; /* 슬라이딩 애니메이션 */
+    z-index: 10;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
+    padding: 40px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+/* 사이드바가 보일 때의 스타일 */
+#input-sidebar.visible {
+    transform: translateX(0); /* 원래 위치로 이동 */
+}
+
+/* 토글 버튼 스타일 */
+.toggle-button {
+    position: fixed; /* 뷰포트 기준으로 고정 */
+    top: 50%;
+    left: 0; 
+    transform: translateY(-50%);
+    width: 40px;
+    height: 60px;
+    background-color: #BB86FC;
+    color: #121212;
+    border: none;
+    border-top-right-radius: 8px; 
+    border-bottom-right-radius: 8px;
+    cursor: pointer;
+    z-index: 11;
+    font-size: 20px;
+    font-weight: bold;
+    transition: transform 0.5s ease-in-out;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* 사이드바가 열렸을 때 버튼의 위치 */
+.toggle-button.is-open {
+    transform: translateY(-50%) translateX(35vw); /* 사이드바 너비만큼 오른쪽으로 이동 */
+}
+
+
+/* 내부 UI 요소 스타일 */
+.input-container {
+    width: 100%;
+}
+
+h1 {
+    color: #BB86FC;
+    text-align: left;
+    width: 100%;
+}
+
+textarea {
+    width: 100%;
+    height: 150px;
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    border: 1px solid #333;
+    background-color: #1E1E1E;
+    color: #E0E0E0;
+    font-size: 16px;
+    resize: none;
+    box-sizing: border-box;
+    z-index: 12;
+}
+
+/* 기록하기 버튼 */
+button#record-button {
+    width: 100%;
+    padding: 12px 25px;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    background-color: #BB86FC;
+    color: #121212;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    z-index: 12;
+}
+
+button#record-button:hover {
+    background-color: #925CFA;
+}
+
+/* 분석 결과 표시 영역 */
+.result-container {
+    margin-top: 20px;
+    width: 100%;
+    padding: 15px;
+    background-color: #2a2a2a;
+    border-radius: 10px;
+    border: 1px solid #333;
+    z-index: 12;
+}
+
+.result-container p {
+    margin: 5px 0;
+    font-size: 14px;
+}
+
+.result-container span {
+    font-weight: bold;
+    color: #BB86FC;
+}
+
+/* 메시지 박스 스타일 */
+#message-box {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    padding: 15px 25px;
+    background-color: rgba(0, 150, 255, 0.8);
+    color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    display: none;
+    z-index: 100;
+}

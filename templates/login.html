@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>나만의 기록 은하계</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #121212;
+            color: #E0E0E0;
+        }
+    </style>
+    <script type="module" src="{{ url_for('static', filename='js/login.js') }}"></script>
+</head>
+<body class="flex items-center justify-center min-h-screen">
+    <div class="bg-gray-800 p-8 rounded-lg shadow-lg w-full max-w-sm border border-gray-700">
+        <h1 class="text-3xl font-bold mb-6 text-center text-purple-400">로그인</h1>
+        <div id="message-box" class="hidden mb-4 p-3 text-center rounded-lg"></div>
+        <form id="login-form" class="space-y-4">
+            <div>
+                <label for="email" class="block text-sm font-medium text-gray-300">이메일</label>
+                <input type="email" id="email" name="email" required class="mt-1 block w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-md shadow-sm focus:outline-none focus:ring-purple-500 focus:border-purple-500 text-white">
+            </div>
+            <div>
+                <label for="password" class="block text-sm font-medium text-gray-300">비밀번호</label>
+                <input type="password" id="password" name="password" required class="mt-1 block w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-md shadow-sm focus:outline-none focus:ring-purple-500 focus:border-purple-500 text-white">
+            </div>
+            <button type="submit" class="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-gray-900 bg-purple-400 hover:bg-purple-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500 transition-colors">
+                로그인
+            </button>
+        </form>
+        
+        <div class="mt-6 text-center">
+            <a href="register" class="text-sm text-purple-400 hover:underline">회원가입</a>
+        </div>
+    </div>
+</body>
+</html>

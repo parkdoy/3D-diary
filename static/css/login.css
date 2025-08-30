@@ -1,0 +1,7 @@
+body {
+    font-family: 'Inter', sans-serif;
+}
+.login-card {
+    background-color: #1a1a1a;
+    border: 1px solid #2e2e2e;
+}
