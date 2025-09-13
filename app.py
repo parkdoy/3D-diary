@@ -6,6 +6,7 @@ from services.analyzer import analyze_text, load_models
 from flask import Flask, render_template
 from services.login import add_login_route 
 from services.register import add_register_route
+from config import DIARY_SPREADSHEET_ID
 
 # 현재 스크립트 파일의 절대 경로를 가져와 기본 디렉터리로 설정합니다.
 base_dir = os.path.dirname(os.path.abspath(__file__))
@@ -25,7 +26,7 @@ if emotion_classifier is None or summarizer is None:
     print("경고: AI 모델 로드에 실패했습니다. 분석 기능이 올바르게 작동하지 않을 수 있습니다.")
 
 # 스프레드시트 ID는 app.py 또는 환경 변수에 정의되어야 합니다.
-SPREADSHEET_ID = "1h_mCzTljC2Yj7HqwnGmbCbPTisY1BzHQVet8vPWaXUY"
+SPREADSHEET_ID = DIARY_SPREADSHEET_ID
 
 # Google Sheets에서 사용자의 user_id를 조회하는 함수
 def get_user_id_from_sheet(email):

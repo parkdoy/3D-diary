@@ -4,6 +4,7 @@ import json
 from googleapiclient.discovery import build
 from googleapiclient.errors import HttpError
 from google.oauth2 import service_account
+from config import DIARY_SPREADSHEET_ID
 
 # Google Sheets API 서비스 객체를 초기화하는 함수
 # 이 함수는 app.py 또는 별도 service 모듈에 정의되어야 합니다.
@@ -27,10 +28,6 @@ def get_sheets_service():
     except Exception as e:
         print(f"ERROR: Google Sheets API 서비스 객체 생성 중 오류 발생: {e}")
         return None
-
-# 스프레드시트 ID는 app.py 또는 환경 변수에 정의되어야 합니다.
-# 예시 ID를 사용합니다. 실제 스프레드시트 ID로 변경해야 합니다.
-DIARY_SPREADSHEET_ID = "1h_mCzTljC2Yj7HqwnGmbCbPTisY1BzHQVet8vPWaXUY"
 
 # 스프레드시트에서 사용자 정보를 검증하는 함수
 def validate_user_from_sheet(email, password):

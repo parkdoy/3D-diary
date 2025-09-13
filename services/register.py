@@ -2,9 +2,8 @@ import uuid
 from flask import request, jsonify
 from googleapiclient.errors import HttpError
 from services.sheets import get_sheets_service
-
-# 스프레드시트 ID는 app.py 또는 환경 변수에 정의되어야 합니다.
-DIARY_SPREADSHEET_ID = "1h_mCzTljC2Yj7HqwnGmbCbPTisY1BzHQVet8vPWaXUY"
+from config import DIARY_SPREADSHEET_ID
+    
 
 def create_new_user(email, password):
     """
